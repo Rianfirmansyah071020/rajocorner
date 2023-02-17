@@ -1,0 +1,27 @@
+ <?php include "layouts/sidebar-admin.php"; ?>
+
+<div class="content-body">
+
+            <div class="row page-titles mx-0 bg-primary text-white">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Dashboard</li>
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row p-3 mt-2 mb-2 card shadow ">
+                <div class="col-lg-4 col-xl-4 col-md-12 col-sm-12">
+                    <h5>Halaman Kelola Data Admin</h5>
+                </div>
+                <div class="col-lg-4 col-xl-4 col-md-12 col-sm-12">
+                    <img src="public/dataimage/content/admin.jpg" alt="">
+                </div>
+            </div>
+            </div>
+
+
+
+ <?php include "layouts/footer-admin.php"; ?> 
