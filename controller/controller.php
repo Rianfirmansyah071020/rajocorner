@@ -1,7 +1,7 @@
 <?php 
 
     // koneksi ke database
-    $conn = mysqli_connect("localhost", "root", "", "rajocorner");
+    $conn = mysqli_connect("localhost", "root", "", "corner");
 
     if($conn == false) { 
 
