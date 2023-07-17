@@ -73,6 +73,7 @@
                                     <th class="text-center">Nama Menu</th>
                                     <th class="text-center">Kode Meja</th>
                                     <th class="text-center">Tanggal Pesan</th>
+                                    <th class="text-center">Waktu Pesan</th>
                                     <th class="text-center">Jumlah Pesan</th>
                                     <th class="text-center">Total</th>
                                     <th class="text-center">Status Pesan</th>
@@ -82,7 +83,7 @@
                             <tbody>
                                 <?php                                 
 
-                                $dataPemesananAll = mysqli_query($conn, "SELECT pemesanan.id_pemesanan as id_pemesanan, pelanggan.nama_lengkap as nama_lengkap, stand.nama_stand as nama_stand, menu.nama_menu as nama_menu, meja.kode_meja as kode_meja, pemesanan.tanggal_pesan as tanggal_pesan, pemesanan.jumlah_pesan as jumlah_pesan, pemesanan.total as total, pemesanan.status_pesan status_pesan FROM pemesanan INNER JOIN pelanggan ON pemesanan.id_pelanggan=pelanggan.id_pelanggan INNER JOIN menu ON pemesanan.id_menu=menu.id_menu INNER JOIN stand ON pemesanan.id_stand=stand.id_stand INNER JOIN meja ON pemesanan.id_meja=meja.id_meja");
+                                $dataPemesananAll = mysqli_query($conn, "SELECT pemesanan.id_pemesanan as id_pemesanan, pelanggan.nama_lengkap as nama_lengkap, stand.nama_stand as nama_stand, menu.nama_menu as nama_menu, meja.kode_meja as kode_meja, pemesanan.tanggal_pesan as tanggal_pesan, pemesanan.jumlah_pesan as jumlah_pesan, pemesanan.waktu_pemesanan as waktu_pemesanan, pemesanan.total as total, pemesanan.status_pesan status_pesan FROM pemesanan INNER JOIN pelanggan ON pemesanan.id_pelanggan=pelanggan.id_pelanggan INNER JOIN menu ON pemesanan.id_menu=menu.id_menu INNER JOIN stand ON pemesanan.id_stand=stand.id_stand INNER JOIN meja ON pemesanan.id_meja=meja.id_meja");
                                 $no = 1;
                                 ?>
 
@@ -94,6 +95,7 @@
                                     <td><?= $row['nama_menu'] ?></td>
                                     <td class="text-center"><?= $row['kode_meja'] ?></td>
                                     <td><?= date('d F Y', strtotime($row['tanggal_pesan'])) ?></td>
+                                    <td class="text-center"><?= $row['waktu_pemesanan'] ?></td>
                                     <td class="text-center"><?= $row['jumlah_pesan'] ?></td>
                                     <td>Rp.<?= number_format($row['total']) ?></td>
                                     <td><?= $row['status_pesan'] ?></td>

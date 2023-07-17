@@ -134,6 +134,11 @@
                             <i class="fa-solid fa-dollar-sign"></i><span class="nav-text">Konfirmasi Pembayaran</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="index.php?page=kasir&aksi=pemesanan" aria-expanded="false">
+                            <i class="fa-solid fa-dollar-sign"></i><span class="nav-text">Pemesanan</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

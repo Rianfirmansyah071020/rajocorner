@@ -141,6 +141,8 @@
             include "kasir/konfirmasi-pembayaran/index.php";
         }elseif ($aksi == "ubahKonfirmasiPembayaran") {
             include "kasir/konfirmasi-pembayaran/ubah.php";
+        }elseif ($aksi == "pemesanan") {
+            include "kasir/pemesanan/index.php";
         }
     }
 
