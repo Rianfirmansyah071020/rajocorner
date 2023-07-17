@@ -51,7 +51,7 @@
                 <div class="card-body">
                     <h3 class="card-title text-white">Jumlah Pemesanan Yang Sudah Di Bayar</h3>
                     <?php 
-                        $jumlahPemesananBelumSelesai = mysqli_query($conn, "SELECT * FROM pemesanan WHERE status_pesan='selesai'");
+                        $jumlahPemesananBelumSelesai = mysqli_query($conn, "SELECT * FROM pemesanan WHERE status_pesan='sudah dibayar'");
                         $jumlahPemesananBelumSelesai = mysqli_num_rows($jumlahPemesananBelumSelesai);
                         
                         ?>
