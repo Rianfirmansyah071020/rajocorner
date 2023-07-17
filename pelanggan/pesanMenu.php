@@ -50,13 +50,18 @@
             $urutan = (int)substr($kode,2, 4);
             $urutan++;
             $keteranganID = "pm";
-            $kodeAuto = $keteranganID . sprintf("%03s", $urutan);            
+            $kodeAuto = $keteranganID . sprintf("%03s", $urutan);  
+            
+            date_default_timezone_set('Asia/Jakarta'); // Atur zona waktu ke Asia/Jakarta (Indonesia)
+
+            $waktuSekarang = new DateTime();
             
             ?>
 
         <div class="col-lg-7 col-xl-7 col-md-12 col-sm-12 p-3 m-1">
             <form action="" method="post">
                 <input type="hidden" name="id_pelanggan" value="<?= $_SESSION['id_pelanggan'] ?>">
+                <input type="hidden" name="id_pelanggan" value="<?= $waktuSekarang->format('H:i:s') ?>">
                 <div class="form-group mt-2">
                     <input type="text" name="nama menu" value="<?= $dataMenuById['nama_menu'] ?>" id="nama menu"
                         placeholder="nama menu" class="form-control" readonly required>
