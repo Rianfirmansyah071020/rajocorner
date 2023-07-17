@@ -33,7 +33,7 @@
                 <div class="card-body">
                     <h3 class="card-title text-white">Jumlah Pemesanan Yang Belum Di Bayar</h3>
                     <?php 
-                        $jumlahPemesananBelumKonfirmasi = mysqli_query($conn, "SELECT * FROM pemesanan WHERE status_pesan='bayar'");
+                        $jumlahPemesananBelumKonfirmasi = mysqli_query($conn, "SELECT * FROM pemesanan WHERE status_pesan='tunggu bayar'");
                         $jumlahPemesananBelumKonfirmasi = mysqli_num_rows($jumlahPemesananBelumKonfirmasi);
                         
                         ?>

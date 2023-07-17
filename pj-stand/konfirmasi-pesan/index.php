@@ -96,9 +96,10 @@ $standDanPjStand = mysqli_fetch_array($standDanPjStand);
                                             <?php } ?>
 
                                             <?php if($row['status_pesan'] == 'sudah disajikan'){ ?>
-                                            <a href="index.php?page=pjStand&aksi=ubahStatusPemesanan&id=<?= $row['id_pemesanan'] ?>&status=bayar"
+                                            <a href="index.php?page=pjStand&aksi=ubahStatusPemesanan&id=<?= $row['id_pemesanan'] ?>&status=tunggu bayar"
                                                 class="btn btn-danger hapus"
-                                                onclick="return confirm('Apakah anda ingin mengkonformasi pemesanan ini ?')">bayar</a>
+                                                onclick="return confirm('Apakah anda ingin mengkonformasi pemesanan ini ?')">tunggu
+                                                bayar</a>
                                             <?php } ?>
                                         </td>
                                     </tr>

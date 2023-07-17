@@ -71,10 +71,11 @@
                                         </td>
                                         <td class="row justify-content-center">
 
-                                            <?php if($row['status_pesan'] == 'bayar') { ?>
-                                            <a href="index.php?page=kasir&aksi=ubahKonfirmasiPembayaran&id=<?= $row['id_pemesanan'] ?>&status=selesai"
+                                            <?php if($row['status_pesan'] == 'tunggu bayar') { ?>
+                                            <a href="index.php?page=kasir&aksi=ubahKonfirmasiPembayaran&id=<?= $row['id_pemesanan'] ?>&status=sudah dibayar"
                                                 class="btn btn-danger hapus"
-                                                onclick="return confirm('Apakah anda ingin mengkonfirmasi pembayaran ini ?')">Selesai</a>
+                                                onclick="return confirm('Apakah anda ingin mengkonfirmasi pembayaran ini ?')">Sudah
+                                                dibayar</a>
                                             <?php } ?>
                                         </td>
                                     </tr>
