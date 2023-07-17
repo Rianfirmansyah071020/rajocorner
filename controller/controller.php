@@ -1005,12 +1005,13 @@
         $id_meja = htmlspecialchars($data['id_meja']);
         $jumlah_pesan = htmlspecialchars($data['jumlah_pesan']);
         $tanggal_pesan = htmlspecialchars($data['tanggal_pesan']);
+        $waktu_pemesanan = htmlspecialchars($data['waktu_pemesanan']);
         $harga = htmlspecialchars($data['harga']);
         
         $total = $harga * $jumlah_pesan;
         $status = "pesan";
 
-        $tambahPemesanan = mysqli_query($conn, "INSERT INTO pemesanan (id_pemesanan, id_pelanggan, id_stand, id_menu, id_meja, jumlah_pesan, tanggal_pesan, total, status_pesan) VALUES ('$id_pemesanan', '$id_pelanggan', '$id_stand', '$id_menu', '$id_meja', '$jumlah_pesan', '$tanggal_pesan', '$total', '$status')");
+        $tambahPemesanan = mysqli_query($conn, "INSERT INTO pemesanan (id_pemesanan, id_pelanggan, id_stand, id_menu, id_meja, jumlah_pesan, tanggal_pesan,waktu_pemesanan ,total, status_pesan) VALUES ('$id_pemesanan', '$id_pelanggan', '$id_stand', '$id_menu', '$id_meja', '$jumlah_pesan', '$tanggal_pesan','$waktu_pemesanan', '$total', '$status')");
 
 
         if($tambahPemesanan) {

@@ -56,7 +56,7 @@
                         
                         ?>
                     <div class="d-inline-block">
-                        <h2 class="text-white"><?= $jumlahPemesananBelumKonfirmasi; ?></h2>
+                        <h2 class="text-white"><?= $jumlahPemesananBelumSelesai; ?></h2>
                     </div>
                     <span class="float-right display-5 opacity-5">
                         <i class="fa-solid fa-dollar-sign"></i></span>
