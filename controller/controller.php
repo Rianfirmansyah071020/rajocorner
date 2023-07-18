@@ -858,6 +858,10 @@
         global $conn;
 
         $ubahStatusPemesananById = mysqli_query($conn, "UPDATE pemesanan SET status_pesan='$status' WHERE id_pemesanan='$id'");
+    
+        if($status == 'sudah dibayar') {
+            mysqli_query($conn, "UPDATE pesan_meja SET status_pesan_meja='tidak dipesan' WHERE id_pemesanan='$id'");
+        }
 
         if($ubahStatusPemesananById) {
 
