@@ -118,6 +118,7 @@ if(isset($_POST['simpan'])) {
                                 <tr>
                                     <th class="text-center">No</th>
                                     <th class="text-center">Kode Meja</th>
+                                    <th class="text-center">QR Code Meja</th>
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
@@ -131,6 +132,9 @@ if(isset($_POST['simpan'])) {
                                 <tr>
                                     <td class="text-center"><?= $no; ?>.</td>
                                     <td class="text-center"><?= $row['kode_meja'] ?></td>
+                                    <td class="text-center">
+                                        <img src="qrcodes/<?= $row['qr_code'] ?>" alt="">
+                                    </td>
                                     <td class="row justify-content-center">
                                         <a href="index.php?page=admin&aksi=ubahMeja&id=<?= $row['id_meja'] ?>"
                                             class="btn btn-info ubah"

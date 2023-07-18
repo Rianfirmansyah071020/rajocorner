@@ -941,11 +941,18 @@
     function tambahMeja ($data) {
         global $conn;
 
+        require_once "phpqrcode/qrlib.php";
+
+        $path = "qrcodes/";
+        $qrcode = $path . time() . ".png";
+        $qrimage = time() . ".png";              
+
         $id_meja = htmlspecialchars($data['id_meja']);
         $kode_meja = htmlspecialchars($data['kode_meja']);
 
+        QRcode::png($kode_meja, $qrcode, 'H', 4, 4);  
 
-        $tambahMeja = mysqli_query($conn, "INSERT INTO meja (id_meja, kode_meja) VALUES ('$id_meja', '$kode_meja')");
+        $tambahMeja = mysqli_query($conn, "INSERT INTO meja (id_meja, kode_meja, qr_code) VALUES ('$id_meja', '$kode_meja', '$qrimage')");
 
         if($tambahMeja) {
 
@@ -960,10 +967,18 @@
      function ubahMeja ($data) {
         global $conn;
 
+        require_once "phpqrcode/qrlib.php";
+
+        $path = "qrcodes/";
+        $qrcode = $path . time() . ".png";
+        $qrimage = time() . ".png";              
+
         $id_meja = htmlspecialchars($data['id_meja']);
         $kode_meja = htmlspecialchars($data['kode_meja']);
 
-        $ubahMeja = mysqli_query($conn, "UPDATE meja SET kode_meja='$kode_meja' WHERE id_meja='$id_meja'");
+        QRcode::png($kode_meja, $qrcode, 'H', 4, 4);  
+
+        $ubahMeja = mysqli_query($conn, "UPDATE meja SET kode_meja='$kode_meja', qr_code='$qrimage' WHERE id_meja='$id_meja'");
 
         if($ubahMeja) {
 
