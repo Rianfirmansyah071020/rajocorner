@@ -1025,9 +1025,23 @@
         
         $total = $harga * $jumlah_pesan;
         $status = "pesan";
+        
 
         $tambahPemesanan = mysqli_query($conn, "INSERT INTO pemesanan (id_pemesanan, id_pelanggan, id_stand, id_menu, id_meja, jumlah_pesan, tanggal_pesan,waktu_pemesanan ,total, status_pesan) VALUES ('$id_pemesanan', '$id_pelanggan', '$id_stand', '$id_menu', '$id_meja', '$jumlah_pesan', '$tanggal_pesan','$waktu_pemesanan', '$total', '$status')");
 
+        $tanggalPesan = date('Y-m-d');
+
+        $menuById = mysqli_query($conn, "SELECT MAX(id_pesan_meja) AS ID FROM pesan_meja");
+            $menuById = mysqli_fetch_array($menuById);
+            $kode = $menuById["ID"];
+            $urutan = (int)substr($kode,3, 6);
+            $urutan++;
+            $keteranganID = "psm";
+            $kodeAuto = $keteranganID . sprintf("%06s", $urutan); 
+            
+        $statusPesanMeja = "dipesan";
+
+        $pesanMeja = mysqli_query($conn, "INSERT INTO pesan_meja (id_pesan_meja,id_meja,id_pemesanan, tanggal_pesan_meja, status_pesan_meja) VALUES ('$kodeAuto','$id_meja','$id_pemesanan', '$tanggalPesan', '$statusPesanMeja')");
 
         if($tambahPemesanan) {
 

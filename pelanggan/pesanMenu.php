@@ -47,10 +47,10 @@
             $menuById = mysqli_query($conn, "SELECT MAX(id_pemesanan) AS ID FROM pemesanan");
             $menuById = mysqli_fetch_array($menuById);
             $kode = $menuById["ID"];
-            $urutan = (int)substr($kode,2, 4);
+            $urutan = (int)substr($kode,3, 6);
             $urutan++;
             $keteranganID = "pm";
-            $kodeAuto = $keteranganID . sprintf("%03s", $urutan);  
+            $kodeAuto = $keteranganID . sprintf("%06s", $urutan); 
             
             date_default_timezone_set('Asia/Jakarta'); // Atur zona waktu ke Asia/Jakarta (Indonesia)
 
@@ -88,9 +88,11 @@
                     <select name="id_meja" id="id_meja" class="form-control" required>
                         <option value="">Pilih meja</option>
                         <?php 
-                $mejaAll = mysqli_query($conn, "SELECT * FROM meja");
+                $mejaAll = mysqli_query($conn, "SELECT meja.id_meja as id_meja, meja.kode_meja as kode_meja, pesan_meja.status_pesan_meja as status_pesan_meja FROM meja LEFT JOIN pesan_meja ON meja.id_meja=pesan_meja.id_meja");
                 foreach ($mejaAll as $row) { ?>
-                        <option value="<?= $row['id_meja'] ?>"><?= $row['kode_meja'] ?></option>
+                        <option value="<?= $row['id_meja'] ?>" <?php if ($row['status_pesan_meja'] == 'dipesan')
+                              echo 'disabled'; ?>><?= $row['kode_meja'] ?> <?= $row['status_pesan_meja'] ?>
+                        </option>
 
                         <?php } ?>
                     </select>
